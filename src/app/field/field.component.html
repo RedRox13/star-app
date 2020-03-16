@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="control">
+    <select id="difficulty"
+            class="control__difficulty"
+            #select
+            [disabled]="isGameStarted"
+            (change)="setSettings()">
+      <option *ngFor="let level of difficultyLevels"
+              [value]="level">{{level}}</option>
+    </select>
+    <input #userName class="control__name"
+           placeholder="Enter your name"
+           [disabled]="isGameStarted">
+    <button (click)="startGame()"
+            [disabled]="isGameStarted"
+            class="control__start">{{isFirstGame ? 'Play' : 'Play again'}}</button>
+    <div class="message"><p [hidden]="isGameStarted">{{winner}}</p></div>
+  </div>
+  <div class="board" #board>
+    <ng-container *ngFor="let number of fieldArray; let i=index">
+      <div class="board__cell" #cell (click)="check(i)"></div>
+    </ng-container>
+  </div>
+</div>

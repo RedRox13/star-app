@@ -1,0 +1,9 @@
+<div class="leaderboard">
+  <h3 class="leaderboard__title">Leader board</h3>
+  <div class="person"
+       *ngFor="let item of winnersArray;
+       trackBy: trackByFn">
+      <span class="person__name">{{item.winner}}</span>
+      <span class="person__date">{{item.date}}</span>
+      </div>
+</div>
